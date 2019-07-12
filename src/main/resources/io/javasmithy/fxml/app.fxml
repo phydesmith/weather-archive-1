@@ -16,8 +16,8 @@
    xmlns:fx="http://javafx.com/fxml"
    alignment="CENTER"
    hgap="10"
-   vgap="10"
-   gridLinesVisible="true"> <!-- testing purposes -->
+   vgap="10">
+   <!-- gridLinesVisible="true" -->
 
    <padding>
       <Insets
@@ -28,15 +28,15 @@
       />
    </padding>
 
-   <VBox 
-      fx:id="zipcodeInput"
-      GridPane.columnIndex="1" GridPane.rowIndex="1">
-         <HBox
-            fx:id="zipLabelAndField">
+   <VBox fx:id="zipcode" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <HBox fx:id="zipInput" spacing="10.0">
             <Label text="Zip Code: "/>
             <TextField fx:id="output"/>
          </HBox>
-          <Button text="Search"/>
+         <HBox fx:id="zipAction" spacing="10.0">
+            <Button text="Search"/>
+            <Label text=""/>
+         </HBox>  
    </VBox>
 
    <TextArea editable="false" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
