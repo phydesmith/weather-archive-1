@@ -18,4 +18,8 @@ public class AppController {
         System.out.println("ZIP Code: " + zipCode);
     }
 
+    public String getZipTxtField() {
+        return this.zipTxtField.getText();
+    }
+
 }

@@ -1,3 +1,10 @@
+CREATE TABLE stations (
+    id VARCHAR(6) NOT NULL PRIMARY KEY,
+    latitude DECIMAL(9,6),
+    longitude DECIMAL(9,6)
+);
+
+
 CREATE TABLE locations (
     zipcode INT NOT NULL PRIMARY KEY,
     city VARCHAR(50),
