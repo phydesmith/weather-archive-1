@@ -35,7 +35,7 @@
             <TextField fx:id="zipTxtField" text=""/>
          </HBox>
          <HBox fx:id="zipAction" spacing="10.0">
-            <Button fx:id="searchButton" text="Search" onAction="#sendZipCode"/>
+            <Button fx:id="searchButton" text="Search" onAction="#getZipcode"/>
             <Label text=""/>
          </HBox>  
    </VBox>

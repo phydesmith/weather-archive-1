@@ -13,13 +13,9 @@ public class AppController {
     private TextField zipTxtField;
 
     @FXML
-    public void sendZipCode(ActionEvent event) throws IOException {
-        String zipCode = zipTxtField.getText();
-        System.out.println("ZIP Code: " + zipCode);
+    public String getZipcode(ActionEvent event) throws IOException {
+        return zipTxtField.getText();
     }
 
-    public String getZipTxtField() {
-        return this.zipTxtField.getText();
-    }
 
 }
