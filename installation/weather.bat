@@ -6,3 +6,4 @@ cd C:\users\peter.hydesmith\documents\projects\weather-projects\weather
 
 start /B javaw -classpath .\target\weather-1.0-SNAPSHOT.jar;%CLASSPATH% --module-path C:\Gluon\javafx-sdk-12\lib\ --add-modules javafx.controls,javafx.fxml io.javasmithy.App
 
+pause
