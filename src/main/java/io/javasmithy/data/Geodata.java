@@ -18,6 +18,7 @@ public class Geodata{
 
     public static void testDerby() {
         try {
+            Class.forName(driver);
             //DriverManager.registerDriver(new org.apache.derby.jdbc.EmbeddedDriver());
             conn = DriverManager.getConnection(connectionURL);
 

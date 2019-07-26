@@ -1,0 +1,8 @@
+export DERBY_INSTALL=/c/apache/db-10.15.3-bin
+
+export CLASSPATH=$DERBY_INSTALL/lib/derby.jar:$DERBY_INSTALL/lib/derbytools.jar:.
+
+mvn clean compile package
+
+java -classpath target/weather-1.0-SNAPSHOT.jar:$CLASSPATH --module-path /c/Gluon/javafx-sdk-12/ -add-modu
+les javafx.control,javafx.fxml io.javasmithy.App
