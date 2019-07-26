@@ -1,4 +1,4 @@
-export DERBY_INSTALL=/c/apache/db-10.15.3-bin
+export DERBY_INSTALL=/c/apache/db-derby-10.15.1.3-bin
 
 export CLASSPATH=$DERBY_INSTALL/lib/derby.jar:$DERBY_INSTALL/lib/derbytools.jar:.
 
