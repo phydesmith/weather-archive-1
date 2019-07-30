@@ -1,6 +1,6 @@
 ----------------------------------------------------------------
-Mon Jul 29 13:22:57 CDT 2019:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.15.1.3 - (1853019): instance a816c00e-016c-3ef8-a2e9-00000751ea20 
+Tue Jul 30 14:56:41 CDT 2019:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.15.1.3 - (1853019): instance a816c00e-016c-4474-cf43-000007522af0 
 on database directory C:\Users\peter.hydesmith\Documents\projects\weather-projects\weather\locales with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@c387f44 
 Loaded from file:/C:/Apache/db-derby-10.15.1.3-bin/lib/derby.jar
 java.vendor=Oracle Corporation
@@ -11,9 +11,3 @@ os.arch=amd64
 os.version=6.3
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''
-----------------------------------------------------------------
-Mon Jul 29 14:45:30 CDT 2019: Shutting down Derby engine
-----------------------------------------------------------------
-Mon Jul 29 14:45:30 CDT 2019:
-Shutting down instance a816c00e-016c-3ef8-a2e9-00000751ea20 on database directory C:\Users\peter.hydesmith\Documents\projects\weather-projects\weather\locales with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@c387f44 
-----------------------------------------------------------------
