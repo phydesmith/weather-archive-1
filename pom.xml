@@ -33,11 +33,6 @@
       <artifactId>derby</artifactId>
       <version>10.15.1.3</version>
     </dependency>
-    <dependency>
-      <groupId>org.apache.derby</groupId>
-      <artifactId>derbyclient</artifactId>
-      <version>10.15.1.3</version>
-    </dependency>
   </dependencies>
 
   <build>
@@ -57,13 +52,18 @@
           </configuration>
         </plugin>
         <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-dependency-plugin</artifactId>
+          <version>3.1.1</version>
+        </plugin>
+        <!--plugin>
           <groupId>org.openjfx</groupId>
           <artifactId>javafx-maven-plugin</artifactId>
-          <version>0.0.2</version>
+          <version>0.0.3</version>
           <configuration>
               <mainClass>io.javasmithy.App</mainClass>
           </configuration>
-        </plugin>
+        </plugin-->
       </plugins>
     </pluginManagement>
   </build>

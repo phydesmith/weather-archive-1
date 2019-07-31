@@ -1,5 +1,7 @@
 package io.javasmithy;
 
+import io.javasmithy.data.*;
+
 import java.io.IOException;
 import javafx.fxml.FXML;
 
@@ -13,8 +15,9 @@ public class AppController {
     private TextField zipTxtField;
 
     @FXML
-    public String getZipcode(ActionEvent event) throws IOException {
-        return zipTxtField.getText();
+    public void getZipcode(ActionEvent event) throws IOException {
+        System.out.println(zipTxtField.getText());
+        Geodata.findStation(zipTxtField.getText());
     }
 
 
