@@ -17,7 +17,8 @@ public class AppController {
     @FXML
     public void getZipcode(ActionEvent event) throws IOException {
         System.out.println(zipTxtField.getText());
-        Geodata.findStation(zipTxtField.getText());
+        String stationId = StationLocator.findStation(zipTxtField.getText());
+        System.out.println(stationId);
     }
 
 
