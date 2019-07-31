@@ -15,9 +15,9 @@ public class AppController {
     private TextField zipTxtField;
 
     @FXML
-    public String getZipcode(ActionEvent event) throws IOException {
-        Geodata.testDerby();
-        return zipTxtField.getText();
+    public void getZipcode(ActionEvent event) throws IOException {
+        System.out.println(zipTxtField.getText());
+        Geodata.findStation(zipTxtField.getText());
     }
 
 
