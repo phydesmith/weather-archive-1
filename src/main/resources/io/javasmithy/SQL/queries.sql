@@ -38,14 +38,17 @@ CALL SYSCS_UTIL.SYSCS_IMPORT_TABLE(
 );
 
 
-select min(sqrt((geodata.latitude-stations.latitude )*( geodata.latitude-stations.latitude)+( geodata.longitude-stations.longitude )*( geodata.longitude-stations.longitude ))) distance
+select zipcode, geodata.latitude, geodata.longitude, station_id, stations.latitude, stations.longitude, sqrt((geodata.latitude-stations.latitude )*( geodata.latitude-stations.latitude)+( geodata.longitude-stations.longitude )*( geodata.longitude-stations.longitude )) distance
 FROM GEODATA JOIN STATIONS
 on 
     (geodata.latitude > (stations.latitude-1) and geodata.latitude < (stations.latitude+1))
     and
     (geodata.longitude > (stations.longitude-1) and geodata.longitude < (stations.longitude+1))
-WHERE geodata.zipcode = 53033 
-order by distance asc;
+where zipcode = 10001 
+order by distance asc fetch first row only;
+
+
+##fetch first row only
 
 
 ##WHERE geodata.zipcode = 53027 min(sqrt( (( geodata.latitude-stations.latitude )( geodata.latitude-stations.latitude))+(( geodata.longitude-stations.longitude )( geodata.longitude-stations.longitude )) ));
