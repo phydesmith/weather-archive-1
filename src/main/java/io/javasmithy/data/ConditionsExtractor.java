@@ -23,13 +23,15 @@ import org.xml.sax.SAXParseException;
 import org.xml.sax.helpers.*;
 */
 
-public class XML{
+public class ConditionsExtractor{
 
     public static String getWeatherConditions(String station) {
+
         String stationId = station;
         String weatherConditions = "";
         String wind = "";
         URL stationURL;
+        
         try {
             stationURL = new URL("https://w1.weather.gov/xml/current_obs/"+stationId+".rss");
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
