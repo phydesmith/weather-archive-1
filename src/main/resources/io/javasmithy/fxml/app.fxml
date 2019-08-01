@@ -40,7 +40,7 @@
          </HBox>  
    </VBox>
 
-   <TextArea editable="false" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+   <TextArea fx:id="weatherOutput" editable="false" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
 
 </GridPane>
 
