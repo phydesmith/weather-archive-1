@@ -19,7 +19,7 @@ It works.
   <br/>java -classpath $CLASSPATH:target/weather-1.0-SNAPSHOT.jar --module-path /c/Gluon/javafx-sdk-12/lib/ --add-modules javafx.controls,javafx.fxml io.javasmithy.App
   
   ### Type in a valid US zipcode
-    Should pull weather data from the station nearest to zip lat/long.
+    Should pull weather data from the station nearest to zip lat/long. Compare results to https://www.weather.gov/ .
     Examples: 94027
               33462
               94022
