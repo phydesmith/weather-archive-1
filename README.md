@@ -4,8 +4,8 @@ It works.
 ## How to run:
     
 ### Download:
-  Derby: https://db.apache.org/derby/releases/release-10.15.1.3.cgi
-  OpenJFX 12: https://gluonhq.com/products/javafx/
+  <br/>Derby: https://db.apache.org/derby/releases/release-10.15.1.3.cgi
+  <br/>OpenJFX 12: https://gluonhq.com/products/javafx/
   
   I found it easiest to extract it to /C/Apache/ and /C/Gluon/
   
