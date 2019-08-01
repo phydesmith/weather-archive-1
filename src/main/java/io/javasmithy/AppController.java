@@ -6,6 +6,7 @@ import java.io.IOException;
 import javafx.fxml.FXML;
 
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextArea;
 
 import javafx.event.ActionEvent;
 
@@ -15,11 +16,12 @@ public class AppController {
     private TextField zipTxtField;
 
     @FXML
+    private TextArea weatherOutput;
+
+    @FXML
     public void getZipcode(ActionEvent event) throws IOException {
         System.out.println(zipTxtField.getText());
         String stationId = StationLocator.findStation(zipTxtField.getText());
-        System.out.println(stationId);
+        weatherOutput.setText(XML.getWeatherConditions(stationId));
     }
-
-
 }
