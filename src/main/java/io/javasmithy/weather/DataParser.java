@@ -2,17 +2,42 @@ package io.javasmithy.weather;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 
+import java.io.IOException;
 import java.io.InputStream;
+
+import org.xml.sax.SAXException;
 
 public class DataParser {
     private InputStream stationData;
+    private DocumentBuilderFactory dbf;
+    private DocumentBuilder db;
+    private Document doc;
 
     public DataParser(InputStream stationData) {
-        this.stationData = stationData;
+        createDocBuilder();
+        createDocument(stationData);
+    }
+
+    private void createDocBuilder(){
+        this.dbf = DocumentBuilderFactory.newInstance();
+        try {
+            this.db = this.dbf.newDocumentBuilder();
+        } catch (ParserConfigurationException e) {
+            System.out.println(e);
+        } 
+    }
+
+    private void createDocument(InputStream stationData){
+        try {
+            this.doc = db.parse(stationData);
+        } catch (SAXException | IOException e) {
+            System.out.println(e);
+        }
     }
 
     public String extractWeatherConditions(){
@@ -20,12 +45,8 @@ public class DataParser {
         String wind = "";
         
         try {
-            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-            DocumentBuilder db = dbf.newDocumentBuilder();
-            Document doc = db.parse(stationData);
-
-            NodeList titleNodes = doc.getElementsByTagName("title");
-            NodeList descriptionNodes = doc.getElementsByTagName("description");
+            NodeList titleNodes = this.doc.getElementsByTagName("title");
+            NodeList descriptionNodes = this.doc.getElementsByTagName("description");
             NodeList descriptionChildNodes;
 
             for (int i = 0; i < descriptionNodes.getLength(); i++) {
