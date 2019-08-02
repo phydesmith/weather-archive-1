@@ -1,4 +1,4 @@
-package io.javasmithy.data;
+package io.javasmithy.weather;
 
 import java.sql.DriverManager;
 import java.sql.Connection;
