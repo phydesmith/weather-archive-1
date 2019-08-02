@@ -1,6 +1,7 @@
 package io.javasmithy;
 
 import io.javasmithy.data.StationLocator;
+import io.javasmithy.data.WeatherService;
 import io.javasmithy.data.ConditionsExtractor;
 
 import java.io.IOException;
@@ -22,7 +23,12 @@ public class AppController {
     @FXML
     public void getZipcode(ActionEvent event) throws IOException {
         System.out.println(zipTxtField.getText());
-        String stationId = StationLocator.findStation(zipTxtField.getText());
-        weatherOutput.setText(ConditionsExtractor.getWeatherConditions(stationId));
+        weatherOutput.setText(
+            ConditionsExtractor.getWeatherConditions(
+                new WeatherService(
+                    StationLocator.findStation(zipTxtField.getText())
+                ).getCurrentObservation()
+            )
+        );
     }
 }
