@@ -2,6 +2,7 @@
 It works.
 
 ## How to run:
+    This is based on a windows 8 installation of VSCode using Git Bash as terminal.
     
 ### Download:
   <br/>Derby 10.15.1.3: https://db.apache.org/derby/releases/release-10.15.1.3.cgi
@@ -10,7 +11,6 @@ It works.
   I found it easiest to extract it to /C/Apache/ and /C/Gluon/
   
 ### Set Environment Variables:
-  using git bash
  <br/>export DERBY_INSTALL=/C/Apache/db-derby-10.14.1.3-bin
  <br/>export CLASSPATH=$DERBY_INSTALL/lib/derby.jar:$DERBY_INSTALL/lib/derbytools.jar
   
