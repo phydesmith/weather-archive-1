@@ -12,8 +12,9 @@ import java.io.InputStream;
 
 import org.xml.sax.SAXException;
 
+import java.util.ArrayList;
+
 public class DataParser {
-    private InputStream stationData;
     private DocumentBuilderFactory dbf;
     private DocumentBuilder db;
     private Document doc;
@@ -44,10 +45,20 @@ public class DataParser {
         String weatherConditions = "";
         String wind = "";
         
+        ArrayList<Node> nodes = new ArrayList();
+
         try {
             NodeList titleNodes = this.doc.getElementsByTagName("title");
             NodeList descriptionNodes = this.doc.getElementsByTagName("description");
             NodeList descriptionChildNodes;
+
+            for (int i = 0; i < titleNodes.getLength(); i++) {
+                nodes.add(titleNodes.item(i));
+            }
+
+            for (int i = 0; i < descriptionNodes.getLength(); i++) {
+                nodes.add(descriptionNodes.item(i));
+            }
 
             for (int i = 0; i < descriptionNodes.getLength(); i++) {
                 if (descriptionNodes.item(i).hasChildNodes()) {
