@@ -84,3 +84,38 @@ public class DataParser {
         }
     }
 }
+
+
+/*
+ArrayList<Node> allNodes = getInfo(doc.getFirstChild());
+
+            for (int i = 0; i < allNodes.size(); i++) {
+                System.out.println("--------" + i + "--------");
+                System.out.println(allNodes.get(i).getTextContent());
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public static ArrayList<Node> getInfo(Node node) {
+        NodeList list = node.getChildNodes();
+        ArrayList<Node> nodes = new ArrayList();
+    
+        for (int i = 0; i < list.getLength(); i++) {
+            Node subNode = list.item(i);
+            if (subNode.getNodeType() == (Node.TEXT_NODE)) {
+                nodes.add(subNode);
+            } else {
+                ArrayList<Node> subNodes = getInfo(subNode);
+                for (int c = 0; c < subNodes.size(); c++) {
+                    nodes.add(subNodes.get(c));
+                }
+            }
+        }
+
+        return nodes;
+    }
+}*/
