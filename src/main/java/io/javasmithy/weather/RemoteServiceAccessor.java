@@ -1,4 +1,4 @@
-package io.javasmithy.data;
+package io.javasmithy.weather;
 
 import java.net.URL;
 import java.net.MalformedURLException;
@@ -6,10 +6,10 @@ import java.net.MalformedURLException;
 import java.io.InputStream;
 import java.io.IOException;
 
-public class WeatherService {
+public class RemoteServiceAccessor {
     private URL currentObvsStation;
 
-    public WeatherService(String stationId) throws MalformedURLException {
+    public RemoteServiceAccessor(String stationId) throws MalformedURLException {
         this.currentObvsStation = new URL("https://w1.weather.gov/xml/current_obs/"+stationId+".rss");
     }
 

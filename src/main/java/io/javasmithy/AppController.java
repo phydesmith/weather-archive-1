@@ -1,8 +1,8 @@
 package io.javasmithy;
 
-import io.javasmithy.data.StationLocator;
-import io.javasmithy.data.WeatherService;
-import io.javasmithy.data.WeatherExtractor;
+import io.javasmithy.weather.StationLocator;
+import io.javasmithy.weather.RemoteServiceAccessor;
+import io.javasmithy.weather.DataParser;
 
 
 import java.io.IOException;
@@ -25,8 +25,8 @@ public class AppController {
     public void getZipcode(ActionEvent event) throws IOException {
         System.out.println(zipTxtField.getText());
         weatherOutput.setText(
-            new WeatherExtractor(
-                new WeatherService(
+            new DataParser(
+                new RemoteServiceAccessor(
                     StationLocator.findStation(zipTxtField.getText())
                 ).getCurrentObservation()
             ).extractWeatherConditions()

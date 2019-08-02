@@ -1,4 +1,4 @@
-package io.javasmithy.data;
+package io.javasmithy.weather;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -8,10 +8,10 @@ import org.w3c.dom.NodeList;
 
 import java.io.InputStream;
 
-public class WeatherExtractor {
+public class DataParser {
     private InputStream stationData;
 
-    public WeatherExtractor(InputStream stationData) {
+    public DataParser(InputStream stationData) {
         this.stationData = stationData;
     }
 
