@@ -8,24 +8,14 @@ import org.w3c.dom.NodeList;
 
 import java.io.InputStream;
 
-/*
-import javax.print.Doc;
-import org.w3c.dom.DocumentType;
-import org.w3c.dom.Entity;
-import org.w3c.dom.NamedNodeMap;
-import org.w3c.dom.Node;
+public class WeatherExtractor {
+    private InputStream stationData;
 
+    public WeatherExtractor(InputStream stationData) {
+        this.stationData = stationData;
+    }
 
-import org.xml.sax.ErrorHandler;
-import org.xml.sax.SAXException;
-import org.xml.sax.SAXParseException;
-import org.xml.sax.helpers.*;
-*/
-
-public class ConditionsExtractor{
-
-    public static String getWeatherConditions(InputStream stationData) {
-
+    public String extractWeatherConditions(){
         String weatherConditions = "";
         String wind = "";
         
@@ -60,6 +50,4 @@ public class ConditionsExtractor{
             return "ERROR";
         }
     }
-
-
 }
