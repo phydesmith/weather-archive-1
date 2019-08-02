@@ -2,7 +2,7 @@
 It works.
 
 ## How to run:
-    This is based on a windows 8 installation of VSCode using Git Bash as terminal.
+    This is based on a windows 8 installation of VSCode using Git Bash.
     
 ### Download:
   <br/>Derby 10.15.1.3: https://db.apache.org/derby/releases/release-10.15.1.3.cgi
