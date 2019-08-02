@@ -1,13 +1,12 @@
 package io.javasmithy.data;
 
-import java.net.URL;
-
-
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
+
+import java.io.InputStream;
 
 /*
 import javax.print.Doc;
@@ -25,18 +24,15 @@ import org.xml.sax.helpers.*;
 
 public class ConditionsExtractor{
 
-    public static String getWeatherConditions(String station) {
+    public static String getWeatherConditions(InputStream stationData) {
 
-        String stationId = station;
         String weatherConditions = "";
         String wind = "";
-        URL stationURL;
         
         try {
-            stationURL = new URL("https://w1.weather.gov/xml/current_obs/"+stationId+".rss");
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             DocumentBuilder db = dbf.newDocumentBuilder();
-            Document doc = db.parse(stationURL.openStream());
+            Document doc = db.parse(stationData);
 
             NodeList titleNodes = doc.getElementsByTagName("title");
             NodeList descriptionNodes = doc.getElementsByTagName("description");

@@ -5,3 +5,6 @@ target/
 .project
 
 *.class
+
+derby.log
+locales/db.lck
