@@ -15,14 +15,21 @@ import org.xml.sax.SAXException;
 
 import java.util.ArrayList;
 
+import java.util.Map;
+import java.util.HashMap;
+
 public class DataParser {
     private DocumentBuilderFactory dbf;
     private DocumentBuilder db;
     private Document doc;
+    private Map<String,String> data;
 
     public DataParser(InputStream stationData) {
         createDocBuilder();
         createDocument(stationData);
+        data = new HashMap<String,String>();
+        getAllTextData(doc.getFirstChild());
+        concatTextData();
     }
 
     private void createDocBuilder(){
@@ -42,80 +49,23 @@ public class DataParser {
         }
     }
 
-    public String extractWeatherConditions(){
-        String weatherConditions = "";
-        String wind = "";
-        
-        ArrayList<Node> nodes = new ArrayList();
-
-        try {
-            NodeList titleNodes = this.doc.getElementsByTagName("title");
-            NodeList descriptionNodes = this.doc.getElementsByTagName("description");
-            NodeList descriptionChildNodes;
-
-            for (int i = 0; i < titleNodes.getLength(); i++) {
-                nodes.add(titleNodes.item(i));
-            }
-
-            for (int i = 0; i < descriptionNodes.getLength(); i++) {
-                nodes.add(descriptionNodes.item(i));
-            }
-
-            for (int i = 0; i < descriptionNodes.getLength(); i++) {
-                if (descriptionNodes.item(i).hasChildNodes()) {
-                    descriptionChildNodes = descriptionNodes.item(i).getChildNodes();
-                    for (int c = 0; c < descriptionChildNodes.getLength(); c++) {
-                        if (i == 1 && c==2) {
-                            wind = descriptionChildNodes.item(2).getTextContent();
-                        }
-                    }
-                }
-            }
-            
-            weatherConditions += titleNodes.item(0).getTextContent()
-                              +  titleNodes.item(2).getTextContent()
-                              +  wind;
-
-            return weatherConditions;
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            return "ERROR";
+    private void getAllTextData(Node node){
+        if (node.getNodeType() == Node.TEXT_NODE) {
+            data.put( node.getParentNode().getParentNode().getNodeName()+"."+node.getParentNode().getNodeName(), node.getNodeValue());
+        }
+        if (node.hasChildNodes()) {
+            getAllTextData(node.getFirstChild());
+        }
+        if (node.getNextSibling() != null) {
+            getAllTextData(node.getNextSibling());
         }
     }
-}
 
-
-/*
-ArrayList<Node> allNodes = getInfo(doc.getFirstChild());
-
-            for (int i = 0; i < allNodes.size(); i++) {
-                System.out.println("--------" + i + "--------");
-                System.out.println(allNodes.get(i).getTextContent());
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
+    public String concatTextData(){
+        String dataString = "";
+        for (Map.Entry<String, String> entry : data.entrySet()) {
+            dataString += "\n" + entry.getKey() + ":\t" + entry.getValue();
         }
-
+        return dataString;
     }
 
-    public static ArrayList<Node> getInfo(Node node) {
-        NodeList list = node.getChildNodes();
-        ArrayList<Node> nodes = new ArrayList();
-    
-        for (int i = 0; i < list.getLength(); i++) {
-            Node subNode = list.item(i);
-            if (subNode.getNodeType() == (Node.TEXT_NODE)) {
-                nodes.add(subNode);
-            } else {
-                ArrayList<Node> subNodes = getInfo(subNode);
-                for (int c = 0; c < subNodes.size(); c++) {
-                    nodes.add(subNodes.get(c));
-                }
-            }
-        }
-
-        return nodes;
-    }
-}*/

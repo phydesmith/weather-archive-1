@@ -29,7 +29,7 @@ public class AppController {
                 new RemoteServiceAccessor(
                     StationLocator.findStation(zipTxtField.getText())
                 ).getCurrentObservation()
-            ).extractWeatherConditions()
+            ).concatTextData()
         );
     }
 }
