@@ -28,7 +28,7 @@ public class DataParser {
         createDocBuilder();
         createDocument(stationData);
         data = new HashMap<String,String>();
-        getAllTextData(doc.getFirstChild());
+        getTextNodes(doc.getFirstChild());
         concatTextData();
     }
 
@@ -49,16 +49,20 @@ public class DataParser {
         }
     }
 
-    private void getAllTextData(Node node){
+    private void getTextNodes(Node node){
         if (node.getNodeType() == Node.TEXT_NODE) {
             data.put( node.getParentNode().getParentNode().getNodeName()+"."+node.getParentNode().getNodeName(), node.getNodeValue());
         }
         if (node.hasChildNodes()) {
-            getAllTextData(node.getFirstChild());
+            getTextNodes(node.getFirstChild());
         }
         if (node.getNextSibling() != null) {
-            getAllTextData(node.getNextSibling());
+            getTextNodes(node.getNextSibling());
         }
+    }
+
+    public HashMap<String,String> getData() {
+        return (HashMap<String,String>)this.data;
     }
 
     public String concatTextData(){
@@ -68,4 +72,5 @@ public class DataParser {
         }
         return dataString;
     }
+}
 
