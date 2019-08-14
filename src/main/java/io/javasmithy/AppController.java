@@ -4,6 +4,7 @@ import io.javasmithy.weather.StationLocator;
 import io.javasmithy.weather.RemoteServiceAccessor;
 import io.javasmithy.weather.DataParser;
 
+import io.javasmithy.weather.CurrentObservation;
 
 import java.io.IOException;
 import javafx.fxml.FXML;
@@ -24,6 +25,10 @@ public class AppController {
     @FXML
     public void getZipcode(ActionEvent event) throws IOException {
         System.out.println(zipTxtField.getText());
+
+        weatherOutput.setText( new CurrentObservation(zipTxtField.getText()).toString() );
+
+        /*
         weatherOutput.setText(
             new DataParser(
                 new RemoteServiceAccessor(
@@ -31,5 +36,6 @@ public class AppController {
                 ).getCurrentObservation()
             ).concatTextData()
         );
+        */
     }
 }
